@@ -1,0 +1,54 @@
+@import url("../css/global.css");
+
+:root{
+    --border-light:#edebef;
+}
+
+.filter-container{
+    display: flex;
+    position: fixed;
+    top: 10rem;
+    left: 1rem;
+    bottom: 0;
+    flex-direction: column;
+    width: 12rem;
+    border: 1px solid var(--border-light);
+}
+
+.filter-heading{
+    padding: 1rem;
+}
+
+.slider{
+    padding: 1rem;
+}
+
+.slider span:nth-child(2){
+    margin-left: 2.5rem;
+}
+
+.slider input{
+    width: 10rem;
+}
+
+.price-list,
+.category-list,
+.rating-list{
+    list-style: none;
+}
+
+.price-range{
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1rem;
+}
+
+.category{
+    border-bottom: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
+    padding: 1rem;
+}
+
+.rating{
+    padding: 1rem;
+}
