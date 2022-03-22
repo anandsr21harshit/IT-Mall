@@ -35,16 +35,20 @@ function Cart() {
             <div className="card-container">
                 <div className="card card-without-image card-price-summary">
                     <h1>Cart Items</h1>
-                    <br/>
                     <hr/>
-                    <br/>
                     <div className="price-details">
-                        <span>Sub Total</span>
+                        <span>Price (0 items)</span>
                         <span className="currency">Rs 0</span>
                     </div>
-                    <br/>
+                    <div className="price-details">
+                        <span>Delivery Charges</span>
+                        <span className="currency">Free</span>
+                    </div>
                     <hr/>
-                    <br/>
+                    <div className="price-details">
+                        <span>Sub Total</span>
+                        <span className="currency">0</span>
+                    </div>
                     <button className="btn btn-primary" type="button">Buy</button>
                 </div>
             </div>
