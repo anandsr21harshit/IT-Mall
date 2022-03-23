@@ -1,10 +1,12 @@
 import React from 'react'
+import { useCart } from '../context/cart-context'
 import "../css/cart.css"
 
 function Cart() {
+    const {cartState,cartDispatch} = useCart();
   return (
     <section className="cart-container">
-        {/* <div className="product">
+        <div className="product">
             {cartState.item.map(items =>{
                 return(
                     <div className="card-container">
@@ -25,20 +27,24 @@ function Cart() {
                                     <button className="quantity-decrease">-</button>
                                 </div>
                             </div>
-                            <button className="btn btn-outline btn-primary-outline" type="button">Remove from Cart</button>
+                            <button 
+                                className="btn btn-outline btn-primary-outline" 
+                                type="button"
+                                onClick={()=>cartDispatch({type:"REMOVE_FROM_CART",payload:items})}
+                                >Remove from Cart</button>
                         </div>
                     </div>
                 );
             })}
-        </div> */}
+        </div>
         <div className="price-summary">
             <div className="card-container">
                 <div className="card card-without-image card-price-summary">
                     <h1>Cart Items</h1>
                     <hr/>
                     <div className="price-details">
-                        <span>Price (0 items)</span>
-                        <span className="currency">Rs 0</span>
+                        <span>Price ({cartState.item.length} items)</span>
+                        <span className="currency">Rs {cartState.price.toLocaleString("en-IN")}</span>
                     </div>
                     <div className="price-details">
                         <span>Delivery Charges</span>
@@ -47,7 +53,7 @@ function Cart() {
                     <hr/>
                     <div className="price-details">
                         <span>Sub Total</span>
-                        <span className="currency">0</span>
+                        <span className="currency">Rs {cartState.price.toLocaleString("en-IN")}</span>
                     </div>
                     <button className="btn btn-primary" type="button">Buy</button>
                 </div>
