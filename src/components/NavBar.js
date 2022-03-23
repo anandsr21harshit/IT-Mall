@@ -30,7 +30,7 @@ function NavBar(){
             <ul className="menus">
                 <li className="menu"><Link to="/" className="stacked-link">Home</Link></li>
                 <li className="menu"><Link to="/pl" className="stacked-link">Product</Link></li>
-                <li className="menu"><a href="../login/login.html">Login</a></li>
+                <li className="menu"><Link to="/login" className="stacked-link">Login</Link></li>
             </ul>
         </nav>
     );
