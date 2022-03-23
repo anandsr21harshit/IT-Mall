@@ -57,6 +57,7 @@
 
 .card-price-summary{
     padding: 1rem;
+    gap:0.8rem;
 }
 .card-price-summary h1{
     text-align: center;
