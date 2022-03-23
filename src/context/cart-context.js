@@ -20,10 +20,8 @@ function cartHandler (state,action){
                 item: [...state.item,action.payload]
             }
         case "REMOVE_FROM_CART":
-           console.log(action.payload);
-           console.log(state.item);
            const filteredProduct = state.item.filter ( item => item._id != action.payload._id)
-           console.log({filteredProduct})
+           
             return {
                 ...state,
                 count: state.count - 1,
