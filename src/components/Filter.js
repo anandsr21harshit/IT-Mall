@@ -1,9 +1,9 @@
-import React from 'react'
-import { useFilter } from '../context/filter-context';
-import "../css/filter.css"
+import React from "react";
+import { useFilter } from "../context/filter-context";
+import "../css/filter.css";
 
 function Filter() {
-  const {filterState,filterDispatch} = useFilter();
+  const { filterState, filterDispatch } = useFilter();
 
   return (
     <aside className="filter-container">
@@ -17,11 +17,31 @@ function Filter() {
         <h3> Sort by Price</h3>
         <ul className="price-list">
           <li>
-            <input type="radio" name="price-sort" id="low_to_high" onChange={()=>filterDispatch({type:'sort',payload:"low_to_high"})}/>
+            <input
+              type="radio"
+              name="price-sort"
+              id="low_to_high"
+              onChange={() =>
+                filterDispatch({
+                  type: "SORT",
+                  payload: { sortValue: "LOW_TO_HIGH" },
+                })
+              }
+            />
             <label htmlFor="low_to_high">Low to High</label>
           </li>
           <li>
-            <input type="radio" name="price-sort" id="high_to_low" onChange={()=>filterDispatch({type:'sort',payload:"high_to_low"})}/>
+            <input
+              type="radio"
+              name="price-sort"
+              id="high_to_low"
+              onChange={() =>
+                filterDispatch({
+                  type: "SORT",
+                  payload: { sortValue: "HIGH_TO_LOW" },
+                })
+              }
+            />
             <label htmlFor="high_to_low">High to Low</label>
           </li>
         </ul>
@@ -30,47 +50,55 @@ function Filter() {
         <h3>Category</h3>
         <ul className="category-list">
           <li>
-            <input 
-              type="checkbox" 
-              id="computers" 
-              onChange={(e)=>
-                e.target.checked ? 
-                filterDispatch({type:"category",payload:"computer"}):
-                filterDispatch({type:"show_all"})}
-              />
+            <input
+              type="checkbox"
+              id="computers"
+              onChange={(e) =>
+                filterDispatch({
+                  type: "TOGGLE_CATEGORY",
+                  payload: { isChecked: e.target.checked, categoryType:'computer' },
+                })
+              }
+            />
             <label htmlFor="computers">Computers</label>
           </li>
           <li>
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               id="mobile"
-              onChange={(e)=>
-                e.target.checked ? 
-                filterDispatch({type:"category",payload:"mobile"}):
-                filterDispatch({type:"show_all"})}
-               />
+              onChange={(e) =>
+                filterDispatch({
+                  type: "TOGGLE_CATEGORY",
+                  payload: { isChecked: e.target.checked, categoryType:'mobile' },
+                })
+              }
+            />
             <label htmlFor="mobile">Mobile Phones</label>
           </li>
           <li>
-            <input 
-              type="checkbox" 
-              id="televison"
-              onChange={(e)=>
-                e.target.checked ? 
-                filterDispatch({type:"category",payload:"television"}):
-                filterDispatch({type:"show_all"})}
-               />
-            <label htmlFor="televison">Televison</label>
+            <input
+              type="checkbox"
+              id="television"
+              onChange={(e) =>
+                filterDispatch({
+                  type: "TOGGLE_CATEGORY",
+                  payload: { isChecked: e.target.checked, categoryType:'television' },
+                })
+              }
+            />
+            <label htmlFor="television">Televison</label>
           </li>
           <li>
-            <input 
-              type="checkbox" 
-              id="accessories" 
-              onChange={(e)=>
-                e.target.checked ? 
-                filterDispatch({type:"category",payload:"accessories"}):
-                filterDispatch({type:"show_all"})}
-              />
+            <input
+              type="checkbox"
+              id="accessories"
+              onChange={(e) =>
+                filterDispatch({
+                  type: "TOGGLE_CATEGORY",
+                  payload: { isChecked: e.target.checked, categoryType:'accessories' },
+                })
+              }
+            />
             <label htmlFor="accessories">Accessories</label>
           </li>
         </ul>
@@ -78,46 +106,54 @@ function Filter() {
       <div className="rating">
         <h3>Ratings</h3>
         <ul className="rating-list">
-            <li>
-                <input 
-                  type="radio" 
-                  name="rating" 
-                  id="rating4" 
-                  onChange={()=>filterDispatch({type:"rating",payload:"rating4"})}
-                  />
-                <label htmlFor="rating4">4 stars and above</label>
-            </li>
-            <li>
-                <input 
-                  type="radio" 
-                  name="rating" 
-                  id="rating3"
-                  onChange={()=>filterDispatch({type:"rating",payload:"rating3"})}
-                  />
-                <label htmlFor="rating3">3 stars and above</label>
-            </li>
-            <li>
-                <input 
-                  type="radio" 
-                  name="rating" 
-                  id="rating2" 
-                  onChange={()=>filterDispatch({type:"rating",payload:"rating2"})}
-                  />
-                <label htmlFor="rating2">2 stars and above</label>
-            </li>
-            <li>
-                <input 
-                  type="radio" 
-                  name="rating" 
-                  id="rating1"
-                  onChange={()=>filterDispatch({type:"rating",payload:"rating1"})}
-                  />
-                <label htmlFor="rating1">1 star and above</label>
-            </li>
+          <li>
+            <input
+              type="radio"
+              name="rating"
+              id="rating4"
+              onChange={() =>
+                filterDispatch({ type: "RATING", payload: 4 })
+              }
+            />
+            <label htmlFor="RATING">4 stars and above</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="rating"
+              id="rating3"
+              onChange={() =>
+                filterDispatch({ type: "RATING", payload: 3 })
+              }
+            />
+            <label htmlFor="rating3">3 stars and above</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="rating"
+              id="rating2"
+              onChange={() =>
+                filterDispatch({ type: "RATING", payload: 2 })
+              }
+            />
+            <label htmlFor="rating2">2 stars and above</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="rating"
+              id="rating1"
+              onChange={() =>
+                filterDispatch({ type: "RATING", payload: 1 })
+              }
+            />
+            <label htmlFor="rating1">1 star and above</label>
+          </li>
         </ul>
-        </div>
+      </div>
     </aside>
-  )
+  );
 }
 
-export {Filter};
+export { Filter };
