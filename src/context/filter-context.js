@@ -40,6 +40,20 @@ function filterReducer(state, action) {
           ...state,
           filters: { ...state.filters, rating:payload }
         }
+      case "CLEAR":
+        return {
+          ...state,
+          filters: {
+            sortBy: "",
+            category: {
+              computer: false,
+              mobile: false,
+              television: false,
+              accessories: false,
+            },
+            rating: 0,
+          }
+        }
     default:
       return state;
   }

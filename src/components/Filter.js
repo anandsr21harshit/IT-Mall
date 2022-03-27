@@ -7,7 +7,10 @@ function Filter() {
 
   return (
     <aside className="filter-container">
-      <h1 className="filter-heading">Filter</h1>
+      <div className="filter-heading">
+        <h1>Filter</h1>
+        <span onClick={()=>filterDispatch({type:"CLEAR"})}>Clear All</span>
+      </div>
       <div className="price-range">
         <h3> Sort by Price</h3>
         <ul className="price-list">
@@ -16,6 +19,7 @@ function Filter() {
               type="radio"
               name="price-sort"
               id="low_to_high"
+              checked = {filterState.filters.sortBy === "LOW_TO_HIGH"}
               onChange={() =>
                 filterDispatch({
                   type: "SORT",
@@ -30,6 +34,7 @@ function Filter() {
               type="radio"
               name="price-sort"
               id="high_to_low"
+              checked = {filterState.filters.sortBy === "HIGH_TO_LOW"}
               onChange={() =>
                 filterDispatch({
                   type: "SORT",
@@ -48,6 +53,7 @@ function Filter() {
             <input
               type="checkbox"
               id="computers"
+              checked = {filterState.filters.category.computer}
               onChange={(e) =>
                 filterDispatch({
                   type: "TOGGLE_CATEGORY",
@@ -61,6 +67,7 @@ function Filter() {
             <input
               type="checkbox"
               id="mobile"
+              checked = {filterState.filters.category.mobile}
               onChange={(e) =>
                 filterDispatch({
                   type: "TOGGLE_CATEGORY",
@@ -74,6 +81,7 @@ function Filter() {
             <input
               type="checkbox"
               id="television"
+              checked = {filterState.filters.category.television}
               onChange={(e) =>
                 filterDispatch({
                   type: "TOGGLE_CATEGORY",
@@ -87,6 +95,7 @@ function Filter() {
             <input
               type="checkbox"
               id="accessories"
+              checked = {filterState.filters.category.accessories}
               onChange={(e) =>
                 filterDispatch({
                   type: "TOGGLE_CATEGORY",
@@ -106,6 +115,7 @@ function Filter() {
               type="radio"
               name="rating"
               id="rating4"
+              checked = {filterState.filters.rating === 4}
               onChange={() =>
                 filterDispatch({ type: "RATING", payload: 4 })
               }
@@ -117,6 +127,7 @@ function Filter() {
               type="radio"
               name="rating"
               id="rating3"
+              checked = {filterState.filters.rating === 3}
               onChange={() =>
                 filterDispatch({ type: "RATING", payload: 3 })
               }
@@ -128,6 +139,7 @@ function Filter() {
               type="radio"
               name="rating"
               id="rating2"
+              checked = {filterState.filters.rating === 2}
               onChange={() =>
                 filterDispatch({ type: "RATING", payload: 2 })
               }
@@ -139,6 +151,7 @@ function Filter() {
               type="radio"
               name="rating"
               id="rating1"
+              checked = {filterState.filters.rating === 1}
               onChange={() =>
                 filterDispatch({ type: "RATING", payload: 1 })
               }
