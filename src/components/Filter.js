@@ -8,11 +8,6 @@ function Filter() {
   return (
     <aside className="filter-container">
       <h1 className="filter-heading">Filter</h1>
-      <div className="slider">
-        <span>Rs 500</span>
-        <span>Rs 5000</span>
-        <input type="range" min="0" max="100" />
-      </div>
       <div className="price-range">
         <h3> Sort by Price</h3>
         <ul className="price-list">
