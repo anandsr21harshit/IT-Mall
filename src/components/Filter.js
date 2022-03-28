@@ -1,5 +1,5 @@
 import React from "react";
-import { useFilter } from "../context/filter-context";
+import { useFilter } from "../context/filter-context"
 import "../css/filter.css";
 
 function Filter() {
@@ -120,7 +120,7 @@ function Filter() {
                 filterDispatch({ type: "RATING", payload: 4 })
               }
             />
-            <label htmlFor="RATING">4 stars and above</label>
+            <label htmlFor="rating4">4 stars and above</label>
           </li>
           <li>
             <input
