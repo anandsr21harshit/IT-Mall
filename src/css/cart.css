@@ -47,7 +47,15 @@
 .quantity-input{
     width: 1.2rem;
     margin: 0 0.2rem;
+    text-align: center;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .quantity-increase, .quantity-decrease{
     width: 1.2rem;
     border-radius: 10%;
