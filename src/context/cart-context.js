@@ -7,12 +7,14 @@ const useCart = () => useContext(CartContext);
 const initialCartState = {
     count:0,
     price:0,
-    item:[]
+    item:[],
+    wishlist:[]
 }
 
 function cartHandler (state,action){
     switch(action.type){
         case "ADD_TO_CART":
+            console.log(state.item)
             return {
                 ...state,
                 count: state.count + 1,
@@ -20,13 +22,36 @@ function cartHandler (state,action){
                 item: [...state.item,action.payload]
             }
         case "REMOVE_FROM_CART":
-           const filteredProduct = state.item.filter ( item => item._id != action.payload._id)
-           
+           const filteredProduct = state.item.filter ( item => item._id !== action.payload._id)
+           const removedItemCount = state.item.filter(item => item._id === action.payload._id).length
+            return {
+                ...state,
+                count: state.count - removedItemCount,
+                price: state.price - action.payload.productPrice* removedItemCount,
+                item: filteredProduct
+            }
+        case "DELETE_FROM_CART":
+            const firstOccurrence = state.item.findIndex(item => item._id === action.payload._id)
+            console.log(firstOccurrence)
+            const newItem = [...state.item]
+            newItem.splice(firstOccurrence,1)
             return {
                 ...state,
                 count: state.count - 1,
                 price: state.price - action.payload.productPrice,
-                item: filteredProduct
+                item: newItem
+            }
+        case "ADD_TO_WISHLIST":
+            return {
+                ...state,
+                wishlist: [...state.wishlist,action.payload]
+            }
+
+        case "REMOVE_FROM_WISHLIST":
+            const filteredWishList = state.wishlist.filter(myItem => myItem._id !== action.payload._id)
+            return {
+                ...state,
+                wishlist: filteredWishList
             }
         default:
             return state
