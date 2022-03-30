@@ -50,6 +50,7 @@
     text-align: center;
 }
 
+/* to remove arrows from input box*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

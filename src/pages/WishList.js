@@ -8,6 +8,8 @@ function WishList() {
   const uniqueWishlistItems = [...new Set(cartState.wishlist)]
 
   return (
+      <>
+    {uniqueWishlistItems.length === 0 && <h1 className="wishlist-status">WishList is Empty</h1> }
     <main className="wishlist-container">
       {uniqueWishlistItems.map((items) => {
         return (
@@ -29,6 +31,7 @@ function WishList() {
         );
       })}
     </main>
+    </>
   );
 }
 
