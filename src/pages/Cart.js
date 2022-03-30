@@ -3,7 +3,6 @@ import { useCart } from "../context/cart-context";
 import "../css/cart.css";
 
 function Cart() {
-
   const { cartState, cartDispatch } = useCart();
 
   const uniqueItems = [...new Set(cartState.item)];
@@ -35,7 +34,9 @@ function Cart() {
                   <div className="quantity">
                     <button
                       className="quantity-increase"
-                      
+                      onClick={() =>
+                        cartDispatch({ type: "ADD_TO_CART", payload: items })
+                      }
                     >
                       +
                     </button>
@@ -45,7 +46,14 @@ function Cart() {
                       value={getItemCount(cartState.item, items._id)}
                       readOnly
                     />
-                    <button className="quantity-decrease">-</button>
+                    <button
+                      className="quantity-decrease"
+                      onClick={() =>  
+                        cartDispatch({ type: "DELETE_FROM_CART", payload: items })
+                      }
+                    >
+                      -
+                    </button>
                   </div>
                 </div>
                 <button
