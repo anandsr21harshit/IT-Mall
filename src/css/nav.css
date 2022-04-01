@@ -57,6 +57,10 @@
     display: none;
 }
 
+.collapsed{
+    display: block;
+}
+
 .list-container{
     border: none;
     width: 80%;

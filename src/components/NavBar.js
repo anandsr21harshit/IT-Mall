@@ -1,25 +1,31 @@
 import "../css/nav.css"
 import {Link} from "react-router-dom"
 import { useCart } from "../context/cart-context";
+import { useState } from "react";
 
 function NavBar(){
 
     const {cartState} = useCart();
 
+    const [classVal, setClassVal] = useState("nav-bar-collapse")
+
+    function collapseHandler(){
+        classVal === "nav-bar-collapse" ? setClassVal(classVal => classVal.concat(" collapsed")) : setClassVal("nav-bar-collapse")
+    }
     return(
         <nav className="nav-bar">
             <h1 className="nav-brand">The IT Mall</h1>
             <div className="search">
                 <input type="search" placeholder="Search"/>
-                <i className="bi bi-list"></i>
+                <i className="bi bi-list" onClick={collapseHandler}></i>
             </div>
-            <div className="nav-bar-collapse">
+            <div className={classVal}>
                 <ul className="list-container">
-                    <li className="stacked"><Link to={"/"} className="stacked-link">Home</Link></li>
-                    <li className="stacked"><a href="../product/product.html">Products</a></li>
-                    <li className="stacked"><a href="../wishlist/wishlist.html">Wishlist</a></li>
-                    <li className="stacked"><a href="../cart/cart.html">Cart</a></li>
-                    <li className="stacked"><a href="../login/login.html">Login</a></li>
+                    <li className="stacked"><Link to={"/"} className="stacked-link" onClick={collapseHandler}>Home</Link></li>
+                    <li className="stacked"><Link to={"/pl"} className="stacked-link" onClick={collapseHandler}>Products</Link></li>
+                    <li className="stacked"><Link to={"/wishlist"} className="stacked-link" onClick={collapseHandler}>WishList</Link></li>
+                    <li className="stacked"><Link to={"/cart"} className="stacked-link" onClick={collapseHandler}>Cart</Link></li>
+                    <li className="stacked"><Link to={"/login"} className="stacked-link" onClick={collapseHandler}>Login</Link></li>
                 </ul>
             </div>
             <ul className="menus">
