@@ -7,6 +7,8 @@
     display: flex;
     margin-bottom: 2rem;
     margin-top: 5rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .product-container{
@@ -55,6 +57,10 @@
     margin: 0.5rem 0;
 }
 
+.btn-secondary{
+    background-color: var(--nav-background-color);
+}
+
 .product-image-container img{
     overflow: hidden;
     height: 12rem;
@@ -75,5 +81,11 @@
 @media screen and (max-width:1000px) {
     .product-container{
         grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media screen and (max-width:700px) {
+    .product-container{
+        margin-left: 2rem;
     }
 }
