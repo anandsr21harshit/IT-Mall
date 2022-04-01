@@ -101,7 +101,7 @@ function ProductListing() {
               {cartState.wishlist.find(
                 (myItem) => myItem._id === product._id
               ) ? (
-                <button className="btn btn-outline btn-primary-outline" onClick={()=>navigate("/wishlist")}>
+                <button className="btn btn-primary" onClick={()=>navigate("/wishlist")}>
                   Go to WishList
                 </button>
               ) : (
