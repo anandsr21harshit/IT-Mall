@@ -14,7 +14,6 @@ const initialCartState = {
 function cartHandler (state,action){
     switch(action.type){
         case "ADD_TO_CART":
-            console.log(state.item)
             return {
                 ...state,
                 count: state.count + 1,
