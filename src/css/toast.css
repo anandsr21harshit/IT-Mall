@@ -1,0 +1,22 @@
+@import url("../css/global.css");
+
+.toast-container{
+    position:fixed;
+    bottom: 0%;
+    left:2%;
+    background-color: green;
+    width: 12rem;
+    padding: 0.5rem;
+}
+
+.toast-container >*{
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width:400px) {
+    .toast-container{
+        width: 100%;
+        left: 0%;
+    }
+}

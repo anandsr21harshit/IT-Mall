@@ -1,7 +1,7 @@
 import React , {useEffect,useState} from "react";
 import "../css/product-list.css";
 import { Filter } from "../components/Filter";
-import { products } from "../backend/db/products";
+import { Toast } from "../components/Toast";
 import { useCart } from "../context/cart-context";
 import { useFilter } from "../context/filter-context";
 import {useNavigate} from "react-router-dom" 
@@ -12,6 +12,7 @@ function ProductListing() {
 
   const [data,setData] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [toast, setToast] = useState(false);
 
     const getProducts = async ()=>{
       try{
@@ -25,6 +26,10 @@ function ProductListing() {
     }
 
   useEffect(()=>getProducts(),[])
+
+  function showToast(){
+    setTimeout(()=> setToast(false),1500);
+  }
 
   const { cartDispatch, cartState } = useCart();
   const { filterState } = useFilter();
@@ -71,6 +76,8 @@ function ProductListing() {
   return (
     <>
     {loader && <h1 style={{position:"absolute",top:"20%",left:"50%"}}>Loading Data...</h1>}
+    {toast && <Toast/>}
+
     <div className="product-wrapper">
       <Filter />
       {!loader && <main className="product-container">
@@ -92,8 +99,11 @@ function ProductListing() {
               </div>
               <button
                 className="btn btn-primary"
-                onClick={() =>
+                onClick={() => {
                   cartDispatch({ type: "ADD_TO_CART", payload: product })
+                  setToast(true);
+                  showToast();
+                }
                 }
               >
                 Add to Cart
