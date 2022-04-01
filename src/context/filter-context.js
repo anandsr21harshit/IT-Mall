@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer } from "react";
-import { products } from "../backend/db/products";
 
 const FilterContext = createContext();
 

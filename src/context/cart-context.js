@@ -32,7 +32,6 @@ function cartHandler (state,action){
             }
         case "DELETE_FROM_CART":
             const firstOccurrence = state.item.findIndex(item => item._id === action.payload._id)
-            console.log(firstOccurrence)
             const newItem = [...state.item]
             newItem.splice(firstOccurrence,1)
             return {
